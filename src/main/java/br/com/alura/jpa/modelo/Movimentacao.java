@@ -9,6 +9,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class Movimentacao {
@@ -26,6 +29,13 @@ public class Movimentacao {
 	private TipoMovimentacao tipoMovimentacao;
 	private LocalDateTime data;
     private String descricao;
+    
+    /**
+     * Para dizer a cardinalidade, sabemos que podem existir várias movimentações em uma única conta;
+     * Então faremos uma anotação chamada @ManyToOne na classe Movimentacao, realizando o relacionamento.
+     */
+    @ManyToOne
+    private Conta conta;
     
 	public Long getId() {
 		return id;
@@ -56,5 +66,11 @@ public class Movimentacao {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public Conta getConta() {
+		return conta;
+	}
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 }
