@@ -39,7 +39,7 @@ public class Movimentacao {
     
     @ManyToMany
     private List<Categoria> categoria;
-    
+   
 	public Long getId() {
 		return id;
 	}
@@ -75,5 +75,11 @@ public class Movimentacao {
 	}
 	public void setConta(Conta conta) {
 		this.conta = conta;
+	}
+	public List<Categoria> getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(List<Categoria> categoria) {
+		this.categoria = categoria;
 	}
 }
