@@ -13,6 +13,21 @@ public class Categoria {
     private Long id;
     private String nome;
     
+    /**
+     * Por convenção, o Hibernate ainda precisará usar o construtor padrão
+     * da categoria para instanciar seus objetos; então o criaremos sem argumentos
+     * na classe Categoria que não executará nenhuma ação.
+	 * Para indicar que este construtor será usado somente para a infraestrutura e
+	 * não pelos desenvolvedores, escreveremos a anotação @Deprecated.
+     */
+    @Deprecated
+    public Categoria() {
+    }
+    
+	public Categoria(String nome) {
+		super();
+		this.nome = nome;
+	}
 	public Long getId() {
 		return id;
 	}
