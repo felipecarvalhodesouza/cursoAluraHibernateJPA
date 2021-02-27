@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,6 +17,14 @@ public class Cliente {
     private String profissao;
     private String endereco;
     
+    /**
+     * O @OneToOne presente na classe Cliente, por padrão, não coloca essa restrição construente nas tabelas.
+     * Neste mesmo código, aplicaremos o comportamento através da anotação @JoinColumn() passando o atributo 
+     * unique como true, o que tornará única a chave estrangeira, impedindo outros relacionamento além da Conta.
+     * 
+     * Este só possui efeito no momento da criação das tabelas, e não atua na atualização.
+     */
+    @JoinColumn(unique = true)
     @OneToOne
     private Conta conta;
 
