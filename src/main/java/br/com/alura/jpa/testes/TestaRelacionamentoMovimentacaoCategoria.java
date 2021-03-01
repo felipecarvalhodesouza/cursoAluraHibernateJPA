@@ -26,7 +26,7 @@ public class TestaRelacionamentoMovimentacaoCategoria {
          * Em seguida, adicionaremos setConta() passando a conta para as duas movimentacoes.
          */
         Conta conta = new Conta();
-        conta.setId(2L);
+        conta.setId(1L);
         
         Movimentacao movimentacao = new Movimentacao();
         movimentacao.setDescricao("Viagem à São Paulo");
