@@ -18,7 +18,12 @@ public class Conta {
 	private Integer numero;
 	private String titular;
 	private Double saldo;
-	@OneToMany
+	/**
+	 * Relacionamento bidirecional.
+	 * Precisa ser evidenciado que relacionamento é só um espelho
+	 * Já foi mapeado pelo atributo 'conta' da movimentação
+	 */
+	@OneToMany(mappedBy="conta")
 	private List<Movimentacao> movimentacoes;
 
 	public Long getId() {
