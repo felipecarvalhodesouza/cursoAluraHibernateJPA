@@ -3,6 +3,7 @@ package br.com.alura.jpa.modelo;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,10 +23,16 @@ public class Conta {
 	 * Relacionamento bidirecional.
 	 * Precisa ser evidenciado que relacionamento é só um espelho
 	 * Já foi mapeado pelo atributo 'conta' da movimentação
+	 * 
+	 * Eager é o contrário do lazy
+	 * É o padrão de relacionamentos toOne
+	 * Ele vai fazer o select mesmo se na impressão as movimentações
+	 * estiverem comentadas.
+	 * Busca antecipadamente os relacionamentos
 	 */
-	@OneToMany(mappedBy="conta")
+	@OneToMany(mappedBy="conta", fetch = FetchType.EAGER)
 	private List<Movimentacao> movimentacoes;
-
+	
 	public Long getId() {
 		return id;
 	}

@@ -35,7 +35,14 @@ public class TestaRelatorioDasMovimentacoes {
         	 */
         	System.out.println("Movimentações: " + conta.getMovimentacoes());			
 		}
-
+        
+        /**
+         * Esse é o cenário N+1
+         * Pois primeiro é feito um select para buscar a conta
+         * E para cada conta, são feito N selects para buscar as movimentações
+         * 
+         * Não é bom performaticamente num sistema real
+         */
 	}
 
 }
